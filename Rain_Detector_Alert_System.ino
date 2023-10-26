@@ -31,9 +31,14 @@ lcd.setCursor (0,1);
 lcd.print(" Rain  Detector "); 
 delay(2000);
 lcd.clear();
+
+Serial.begin(9600);
+
 }
 
 void loop() {
+  int serialvalue=analogRead(A0);
+  Serial.println(serialvalue);
 
 adc_value= analogRead(sensor_pin);
 percent_value = map(adc_value,0,1023,100,0);
